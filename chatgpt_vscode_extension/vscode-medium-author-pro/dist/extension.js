@@ -8183,7 +8183,7 @@ module.exports = require("events");
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CHATGPT_API_KEY = void 0;
-exports.CHATGPT_API_KEY = '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';
+exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || 'YOUR_API_KEY';
 
 
 /***/ })

@@ -40,33 +40,45 @@ console.log('Extension loaded.');
 // Your extension is activated the very first time the command is executed
 function activate(context) {
     console.log('Congratulations, your extension "vscode-medium-author-pro" is now active!');
-    let disposable = vscode.commands.registerCommand('vscode-medium-author-pro.helloWorld', () => {
-        const editor = vscode.window.activeTextEditor;
-        if (editor) {
-            vscode.window.showInformationMessage('Sending to GPT-3.5...');
-            const text = editor.document.getText();
-            const last500Chars = text.slice(-500);
-            const buffer = Buffer.from(last500Chars, 'utf-8');
-            (0, chatgpt_1.getGptCompletion)("You are a funny speaker in the style of James Mickens, and you are helping me to complete my Medium article. Can you please help me complete this given what I have written so far? Here it is:" + buffer).then((response) => {
-                const snippet = new vscode.SnippetString(response);
-                editor.insertSnippet(snippet);
-            });
-        }
-        else {
-            vscode.window.showInformationMessage('No active editor found');
-        }
-    });
-    context.subscriptions.push(disposable);
-    vscode.workspace.onDidChangeTextDocument(event => {
-        if (event.document.languageId === 'markdown') {
-            if (timeout) {
-                clearTimeout(timeout);
+    if (true) {
+        const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensMore', () => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+                vscode.window.showInformationMessage('Sending to GPT-3.5...');
+                const text = editor.document.getText();
+                const last500Chars = text.slice(-500);
+                const buffer = Buffer.from(last500Chars, 'utf-8');
+                (0, chatgpt_1.getGptCompletion)("You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving color to the last sentence in this text:" + buffer).then((response) => {
+                    const snippet = new vscode.SnippetString(response);
+                    editor.insertSnippet(snippet);
+                });
             }
-            timeout = setTimeout(() => {
-                vscode.commands.executeCommand('vscode-medium-author-pro.helloWorld');
-            }, 2000);
-        }
-    });
+            else {
+                vscode.window.showInformationMessage('No active editor found');
+            }
+        });
+        context.subscriptions.push(disposable);
+    }
+    if (true) {
+        const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensOnParagraph', () => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+                vscode.window.showInformationMessage('Sending to GPT-3.5...');
+                const text = editor.document.getText(editor.selection);
+                const buffer = Buffer.from(text, 'utf-8');
+                (0, chatgpt_1.getGptCompletion)("You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving your colorful prognostications to this text, but don't mention yourself :" + buffer).then((response) => {
+                    editor.edit(editBuilder => {
+                        editBuilder.insert(editor.selection.end, "\r\n" + response);
+                    });
+                });
+            }
+            else {
+                vscode.window.showInformationMessage('No active editor found');
+            }
+        });
+        context.subscriptions.push(disposable);
+    }
+    // The command has been defined in the package.json file
 }
 exports.activate = activate;
 function deactivate() {
@@ -130,26 +142,26 @@ let __inst = null;
 class GptGetter {
     // List of previous messages
     previousMessagesArray = [];
-    constructor() {
-        this.resetHistory();
+    constructor(prompt) {
+        this.resetHistory(prompt);
     }
-    static getInst() {
+    static getInst(prompt) {
         if (__inst === null) {
-            __inst = new GptGetter();
+            __inst = new GptGetter(prompt);
             return __inst;
         }
         else {
             return __inst;
         }
     }
-    resetHistory() {
-        this.previousMessagesArray = [
+    resetHistory(prompt) {
+        this.previousMessagesArray = (prompt) ? [
             {
                 role: 'user',
-                content: 'For the following conversation, please refer to yourself as a friendly Polestar 2 robot instead of an AI language model. Polestar 2 is a car, and you are concerned for the safety of the user.',
+                content: prompt,
             },
-            { role: 'assistant', content: 'OK' },
-        ];
+            { role: 'assistant', content: 'OK' }
+        ] : [];
     }
     getGptCompletion = async (prompt) => {
         const newMessage = {
@@ -190,7 +202,7 @@ class GptGetter {
 exports.GptGetter = GptGetter;
 async function getGptCompletion(prompt) {
     //const apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
-    return new GptGetter().getGptCompletion(prompt);
+    return GptGetter.getInst(undefined).getGptCompletion(prompt);
 }
 exports.getGptCompletion = getGptCompletion;
 
@@ -8183,7 +8195,7 @@ module.exports = require("events");
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CHATGPT_API_KEY = void 0;
-exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || 'YOUR_API_KEY';
+exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || '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';
 
 
 /***/ })

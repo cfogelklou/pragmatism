@@ -36,4 +36,8 @@ And it responded that I should add a timeout like this:
 
 /// Placeholder
 
-And at this point, my new extension should be running!
+And at this point, my new extension should be running, and if I highlight this text, James Mickens will help me write a paragraph.
+
+Hark! The digital ages have aligned, and behold as I, James Mickens, descend from the clouds of cyberspace to join you in crafting the most splendid paragraph of all time. Fear not, for with my guidance, your words will sparkle like diamonds in the sun, captivating all who dare to read them. So let us embark on this wondrous journey together, as we weave a tapestry of prose that will stand the test of time. Onward, dear writer, to greatness we shall go!
+
+So, how useful is it having James Mickens as a copilot? Well, I haven't written much, and have done even less public speaking, and he has done plenty of both, so having James Mickens as a copilot is like having a seasoned navigator guiding you through uncharted waters. His wealth of experience in writing and public speaking gives him a unique perspective on how to navigate the treacherous terrain of sharing your ideas with the world. With his guidance, you can be sure that you'll not only reach your destination, but you'll do so with style and flair, leaving a lasting impact on your audience.

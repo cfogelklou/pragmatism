@@ -47,27 +47,28 @@ export class GptGetter {
   // List of previous messages
   previousMessagesArray: Array<ChatGptMessage> = [];
 
-  constructor() {
-    this.resetHistory();
+  constructor(prompt:string|undefined) {
+    this.resetHistory(prompt);
   }
-  static getInst(): GptGetter {
+  static getInst(prompt:string|undefined): GptGetter {
     if (__inst === null) {
-      __inst = new GptGetter();
+      __inst = new GptGetter(prompt);
       return __inst;
     } else {
       return __inst;
     }
   }
 
-  resetHistory() {
-    this.previousMessagesArray = [
+  resetHistory(prompt:string|undefined) {
+    this.previousMessagesArray = (prompt) ? [
       {
         role: 'user',
         content:
-          'For the following conversation, please refer to yourself as a friendly Polestar 2 robot instead of an AI language model. Polestar 2 is a car, and you are concerned for the safety of the user.',
+          prompt,
       },
-      {role: 'assistant', content: 'OK'},
-    ];
+      {role: 'assistant', content: 'OK'}
+      
+    ]:[];
   }
 
   getGptCompletion = async (prompt: string): Promise<string> => {
@@ -120,5 +121,5 @@ export class GptGetter {
 export async function getGptCompletion(prompt: string): Promise<string> {
   //const apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
 
-  return new GptGetter().getGptCompletion(prompt);
+  return GptGetter.getInst(undefined).getGptCompletion(prompt);
 }

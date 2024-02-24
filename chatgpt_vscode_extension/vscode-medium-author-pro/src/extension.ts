@@ -12,39 +12,53 @@ export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "vscode-medium-author-pro" is now active!');
 
-	let disposable = vscode.commands.registerCommand('vscode-medium-author-pro.helloWorld', () => {
-		const editor = vscode.window.activeTextEditor;
-        if (editor) {
-            vscode.window.showInformationMessage('Sending to GPT-3.5...');
-            const text = editor.document.getText();
-            const last500Chars = text.slice(-500);
-            const buffer = Buffer.from(last500Chars, 'utf-8');
+    if (true){
+        const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensMore', () => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+                vscode.window.showInformationMessage('Sending to GPT-3.5...');
+                const text = editor.document.getText();
+                const last500Chars = text.slice(-500);
+                const buffer = Buffer.from(last500Chars, 'utf-8');
 
-            getGptCompletion("You are a funny speaker in the style of James Mickens, and you are helping me to complete my Medium article. Can you please help me complete this given what I have written so far? Here it is:" + buffer).then((response) => {
-                const snippet = new vscode.SnippetString(response);
-                editor.insertSnippet(snippet);
-            });
-        }
-		else {
-			vscode.window.showInformationMessage('No active editor found');
-		}
-
-	});
-
-	context.subscriptions.push(disposable);
-
-	vscode.workspace.onDidChangeTextDocument(event => {
-        if (event.document.languageId === 'markdown') {
-            if (timeout) {
-                clearTimeout(timeout);
+                getGptCompletion("You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving color to the last sentence in this text:" + buffer).then((response) => {
+                    const snippet = new vscode.SnippetString(response);
+                    editor.insertSnippet(snippet);
+                });
+            }
+            else {
+                vscode.window.showInformationMessage('No active editor found');
             }
 
-            timeout = setTimeout(() => {
+        });
 
-                vscode.commands.executeCommand('vscode-medium-author-pro.helloWorld');
-            }, 2000);
-        }
-    });
+        context.subscriptions.push(disposable);
+    }
+
+    if (true){
+        const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensOnParagraph', () => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+                vscode.window.showInformationMessage('Sending to GPT-3.5...');
+                const text = editor.document.getText(editor.selection);
+                const buffer = Buffer.from(text, 'utf-8');
+
+                getGptCompletion("You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving your colorful prognostications to this text, but don't mention yourself :" + buffer).then((response) => {
+                    editor.edit(editBuilder => {
+                        editBuilder.insert(editor.selection.end, "\r\n"+response);
+                    });
+                });
+            }
+            else {
+                vscode.window.showInformationMessage('No active editor found');
+            }
+
+        });
+
+        context.subscriptions.push(disposable);
+    }
+
+    // The command has been defined in the package.json file
 }
 
 export function deactivate() {

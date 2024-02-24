@@ -14,9 +14,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-medium-author-pro.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-medium-author-pro.mickensMore",
+        "title": "Mickens: Write more stuff"
+      },
+      {
+        "command": "vscode-medium-author-pro.mickensOnParagraph",
+        "title": "Mickens: Here is your inspiration"
       }
+
     ]
   },
   "scripts": {

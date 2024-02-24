@@ -23,3 +23,17 @@ So far, this article has been written by my fingertips and brain alone...
 ![First steps](images/extension-first.png)
 
 After navigating the instructions and opening the new submdirectory vscode-medium-author-pro in vscode, I was able to spawn a new vscode window and have it print "Hello World" by pressing F5 when focusing on my new extension.ts file, then running the extension as it says... with shift-cmd-P.
+
+I needed to now update this extension to do "something" after I had stopped typing, so I prompted copiliot with
+
+```prompt
+Can you help me update this vscode extension so it only runs when
+editing .md files, and will wait two seconds until the person has
+stopped typing before printing "Hello VSCode" to the vscode window?
+```
+
+And it responded that I should add a timeout like this:
+
+/// Placeholder
+
+And at this point, my new extension should be running!

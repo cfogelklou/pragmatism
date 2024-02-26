@@ -20,8 +20,11 @@
       {
         "command": "vscode-medium-author-pro.mickensOnParagraph",
         "title": "Mickens: Here is your inspiration"
+      },
+      {
+        "command": "vscode-medium-author-pro.mickensOnCommand",
+        "title": "Mickens: Issue Command"
       }
-
     ]
   },
   "scripts": {
@@ -44,6 +47,7 @@
     "@vscode/test-cli": "^0.0.6",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.3",

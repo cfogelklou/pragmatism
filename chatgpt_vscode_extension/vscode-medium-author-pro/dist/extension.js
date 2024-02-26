@@ -8205,7 +8205,7 @@ module.exports = require("events");
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CHATGPT_API_KEY = void 0;
-exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || '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';
+exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || 'INSERT-YOUR-API-KEY-HERE';
 
 
 /***/ })

@@ -3,40 +3,11 @@
 import * as vscode from 'vscode';
 import { getGptCompletion } from './chatgpt';
 
-let timeout: NodeJS.Timeout | undefined = undefined;
-
 console.log('Extension loaded.');
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "vscode-medium-author-pro" is now active!');
-
-  if (true) {
-    const disposable = vscode.commands.registerCommand(
-      'vscode-medium-author-pro.mickensMore',
-      () => {
-        const editor = vscode.window.activeTextEditor;
-        if (editor) {
-          vscode.window.showInformationMessage('Sending to chatGPT...');
-          const text = editor.document.getText();
-          const last500Chars = text.slice(-500);
-          const buffer = Buffer.from(last500Chars, 'utf-8');
-
-          getGptCompletion(
-            'You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving color to the last sentence in this text:' +
-              buffer,
-          ).then((response) => {
-            const snippet = new vscode.SnippetString(response);
-            editor.insertSnippet(snippet);
-          });
-        } else {
-          vscode.window.showInformationMessage('No active editor found');
-        }
-      },
-    );
-
-    context.subscriptions.push(disposable);
-  }
 
   if (true) {
     const disposable = vscode.commands.registerCommand(
@@ -71,7 +42,6 @@ export function activate(context: vscode.ExtensionContext) {
       () => {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
-          vscode.window.showInformationMessage('Sending to chatGPT...');
           const text = editor.document.getText(editor.selection);
           const buffer = Buffer.from(text, 'utf-8');
 
@@ -79,14 +49,17 @@ export function activate(context: vscode.ExtensionContext) {
             if (value) {
               const command: string = value;
               let prompt =
-                'You are James Mickens, and you are helping me to complete my Medium article. ';
+                'You are James Mickens, and you are helping me to complete my Medium article. I have written this text... what should I write next?';
               if (buffer.length > 0) {
                 prompt += command + ':' + buffer;
               } else {
                 prompt += command;
               }
+              vscode.window.showInformationMessage('Sending to chatGPT...'); // Ask chatGPT for completion
               getGptCompletion(prompt).then((response) => {
+                // Get the completion
                 editor.edit((editBuilder) => {
+                  // Insert the completion into the editor
                   editBuilder.insert(editor.selection.end, '\r\n' + response);
                 });
               });
@@ -104,8 +77,4 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
 }
 
-export function deactivate() {
-  if (timeout) {
-    clearTimeout(timeout);
-  }
-}
+export function deactivate() {}

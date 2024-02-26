@@ -34,32 +34,11 @@ exports.deactivate = exports.activate = void 0;
 // Import the module and reference it with the alias vscode in your code below
 const vscode = __importStar(__webpack_require__(1));
 const chatgpt_1 = __webpack_require__(2);
-let timeout = undefined;
 console.log('Extension loaded.');
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 function activate(context) {
     console.log('Congratulations, your extension "vscode-medium-author-pro" is now active!');
-    if (true) {
-        const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensMore', () => {
-            const editor = vscode.window.activeTextEditor;
-            if (editor) {
-                vscode.window.showInformationMessage('Sending to chatGPT...');
-                const text = editor.document.getText();
-                const last500Chars = text.slice(-500);
-                const buffer = Buffer.from(last500Chars, 'utf-8');
-                (0, chatgpt_1.getGptCompletion)('You are James Mickens, and you are helping me to complete my Medium article. Write a paragraph giving color to the last sentence in this text:' +
-                    buffer).then((response) => {
-                    const snippet = new vscode.SnippetString(response);
-                    editor.insertSnippet(snippet);
-                });
-            }
-            else {
-                vscode.window.showInformationMessage('No active editor found');
-            }
-        });
-        context.subscriptions.push(disposable);
-    }
     if (true) {
         const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensOnParagraph', () => {
             const editor = vscode.window.activeTextEditor;
@@ -84,21 +63,23 @@ function activate(context) {
         const disposable = vscode.commands.registerCommand('vscode-medium-author-pro.mickensOnCommand', () => {
             const editor = vscode.window.activeTextEditor;
             if (editor) {
-                vscode.window.showInformationMessage('Sending to chatGPT...');
                 const text = editor.document.getText(editor.selection);
                 const buffer = Buffer.from(text, 'utf-8');
                 vscode.window.showInputBox({ prompt: 'Enter your command' }).then((value) => {
                     if (value) {
                         const command = value;
-                        let prompt = 'You are James Mickens, and you are helping me to complete my Medium article. ';
+                        let prompt = 'You are James Mickens, and you are helping me to complete my Medium article. I have written this text... what should I write next?';
                         if (buffer.length > 0) {
                             prompt += command + ':' + buffer;
                         }
                         else {
                             prompt += command;
                         }
+                        vscode.window.showInformationMessage('Sending to chatGPT...'); // Ask chatGPT for completion
                         (0, chatgpt_1.getGptCompletion)(prompt).then((response) => {
+                            // Get the completion
                             editor.edit((editBuilder) => {
+                                // Insert the completion into the editor
                                 editBuilder.insert(editor.selection.end, '\r\n' + response);
                             });
                         });
@@ -114,11 +95,7 @@ function activate(context) {
     // The command has been defined in the package.json file
 }
 exports.activate = activate;
-function deactivate() {
-    if (timeout) {
-        clearTimeout(timeout);
-    }
-}
+function deactivate() { }
 exports.deactivate = deactivate;
 
 
@@ -8228,7 +8205,7 @@ module.exports = require("events");
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CHATGPT_API_KEY = void 0;
-exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || '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';
+exports.CHATGPT_API_KEY = process.env.CHATGPT_API_KEY || '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';
 
 
 /***/ })

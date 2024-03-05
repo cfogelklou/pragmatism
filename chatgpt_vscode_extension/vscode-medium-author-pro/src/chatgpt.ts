@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import * as ApiKey from './api-key';
 
@@ -40,35 +40,21 @@ const HEADERS = {
   Authorization: `Bearer ${ApiKey.CHATGPT_API_KEY}`,
 };
 
-const MAX_TOKENS = 350;
+const MAX_TOKENS = 1000;
 
 let __inst: GptGetter | null = null;
 export class GptGetter {
   // List of previous messages
   previousMessagesArray: Array<ChatGptMessage> = [];
 
-  constructor(prompt:string|undefined) {
-    this.resetHistory(prompt);
-  }
-  static getInst(prompt:string|undefined): GptGetter {
+  constructor(prompt: string | undefined) {}
+  static getInst(prompt: string | undefined): GptGetter {
     if (__inst === null) {
       __inst = new GptGetter(prompt);
       return __inst;
     } else {
       return __inst;
     }
-  }
-
-  resetHistory(prompt:string|undefined) {
-    this.previousMessagesArray = (prompt) ? [
-      {
-        role: 'user',
-        content:
-          prompt,
-      },
-      {role: 'assistant', content: 'OK'}
-      
-    ]:[];
   }
 
   getGptCompletion = async (prompt: string): Promise<string> => {
@@ -78,13 +64,11 @@ export class GptGetter {
     };
 
     this.previousMessagesArray.push(newMessage);
-    console.log(
-      'previousMessagesArray1::',
-      JSON.stringify(this.previousMessagesArray),
-    );
+    console.log('previousMessagesArray1::', JSON.stringify(this.previousMessagesArray));
 
     const data: ChatGptCompletionPostData = {
-      model: 'gpt-3.5-turbo',
+      // model: 'gpt-3.5-turbo',
+      model: 'gpt-4',
       max_tokens: MAX_TOKENS,
       messages: [...this.previousMessagesArray],
     };
@@ -103,10 +87,7 @@ export class GptGetter {
         };
 
         this.previousMessagesArray.push(newResponse);
-        console.log(
-          'previousMessagesArray2::',
-          JSON.stringify(this.previousMessagesArray),
-        );
+        console.log('previousMessagesArray2::', JSON.stringify(this.previousMessagesArray));
 
         return gptRsp.choices[0].message.content;
       }

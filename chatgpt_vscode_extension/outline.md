@@ -16,7 +16,9 @@ After the storm, both tribes learned important lessons. The Waterfall Tribe real
 
 The Agile Tribe, on the other hand, realized that a little bit of planning could save them from confusion and mistakes. They understood the value of having a basic blueprint to guide them, even while being quick and adaptable.
 
-In the end, both tribes found a happy middle ground. The Waterfall Tribe began to include more flexibility in their plans, and the Agile Tribe started to make basic blueprints before they started their work. This balance made their village building better and stronger, preparing them well for whatever future challenges they might face. And that, dear children, is how the two tribes learned to plan and adapt together.
+## WAGILE: AKA "A Few Weeks of Programming Can Save You Hours of Planning."
+
+![anuses](images/dog-with-two-anuses.jpeg)
 
   - Agile was introduced (history?)
   - Manufacturers are trying to be agile, but our timelines are waterfall

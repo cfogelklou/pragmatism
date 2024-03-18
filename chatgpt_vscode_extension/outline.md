@@ -1,20 +1,90 @@
 # Merging Waterfall and Agile, or DO Sweat the Details
 
-Once upon a time, there were two tribes living by a beautiful lake. The Waterfall Tribe was famous for their careful planning. They made detailed blueprints for their village. Every house, every path, every tree was planned in advance. Their village would eventually look like a perfectly made puzzle, where everything fit together just right. 
+## Storytime Introduction
+Once upon a time, there were two tribes living by a beautiful lake. The Waterfall Tribe was famous for their careful planning. They made detailed blueprints for their village. Every house, every path, every tree was planned in advance. The plumbing and foundations were put in place by the plumbers and bricklayers. Their village would eventually look like a perfectly made puzzle, where everything fit together just right. 
 
 The Agile Tribe, living on the other side of the lake, had a different way of doing things. They were known for being quick and flexible. When building their village, they would build a little, then stop and think about what to do next. This way, they could change things and try new ideas. They weren't tied down by a strict plan, which let them be creative and innovative, but their village was often rough around the edges, and sometimes they started building an area only to realize that they needed to stop, tear it down, and start again.
 
 One day, while both tribes were still busy building their villages, a huge storm came. It brought heavy rain, strong winds, and the lake's waters began to swirl and rise. This storm threatened to ruin everything both tribes had worked on.
 
-The Waterfall Tribe found themselves in a tough spot. Their detailed plans hadn't accounted for such a big storm. The temporary tents they had set up to live in while constructing the village foundations were no match for the winds of the storm, the peninsula where their fishing shack would be built had been washed, and the the blueprints needed to be completely rewritten, and the village rebuilt, squeezing in the new fishing shack somewhere. They were stuck, unable to change their plan quickly enough to save their village. Their strict adherence to their plan resulted in a lot of destruction and delay.
+The Waterfall Tribe found themselves in a tough spot. Their detailed plans hadn't accounted for such a big storm; the foundations and plumbing had already planted. The temporary tents they had set up to live in while constructing the village foundations were no match for the winds of the storm, the peninsula where their fishing shack would be built had been washed away, and the the blueprints needed to be completely rewritten, and the village rebuilt, squeezing in the new fishing shack somewhere. They were stuck, unable to change their plan quickly enough to save their village. Their strict adherence to their plan resulted in a lot of destruction and delay, and a lot of the work they had already done was useless as some of these cleverly planned pipes were now covered by lakewater.
 
 The Agile Tribe, however, was better prepared for this surprise. Their flexible way of working allowed them to respond quickly. They stopped their work, rerouted their efforts, and started building protective barriers and storm shelters. Their ability to adapt helped them minimize the damage.
 
 But, the Agile Tribe's approach wasn't perfect either. They didn't have a clear plan, which led to some confusion and wastage. They had to keep reassessing their work, which sometimes led to mistakes and wasted resources, such as when they realized the "kitchen" team had placed the kitchen immediately upon the "plumbing" (it was really just a stream) built by the "toilets" team, and they had to rip up the kitchen and start again.
 
-After the storm, both tribes learned important lessons. The Waterfall Tribe realized that being flexible and adaptable is as important as planning. They learned that plans need to have room for change and unexpected events.
+After the storm, both tribes learned important lessons. The Waterfall Tribe realized that being flexible and adaptable is as important as planning; that sometimes perfect is the enemy of good... and they had actually planned their whole village underneath the floodplain without realizing that it would be buried by the yearly floods. They learned plans need to have room for change and unexpected events, and sometimes it is OK to iterate and test their solutions rather than going all in on a plan.
 
-The Agile Tribe, on the other hand, realized that a little bit of planning could save them from confusion and mistakes. They understood the value of having a basic blueprint to guide them, even while being quick and adaptable.
+The Agile Tribe, on the other hand, realized that a little bit of planning could save them from confusion and mistakes. They understood the value of having a basic blueprint to guide them, even while being quick and adaptable. The plumbing and foundations that each house had put in place were poorly built, since every family was responsible for doing their own, and every family did their own, with some sewage ditches being run right through the gardens of other huts. Had they spent more time planning and less time just building, they would have avoided the sewage smell from the kitchen, before all of it was washed away by the storm.
+
+## Segue
+
+I changed the details to protect the innocent, but this might resemble some projects I have been involved in in my past. The automotive industry has just woken up to the fact that Agile is not the silver bullet we were sold, and this applies to all of its variants including SAFe, Kanban, Scrum.
+
+## The point of this talk
+
+From the late 90s until mid 2010s I was working in a wide variety of software projects, and finally was sucked into the Gothenburg Automotive Black Hole in 2015. For the last few years I have had roles working with multiple teams working with automotive software; either directly leading them, working with in the projects, or having beer with them. During this time, I started compiling a list of things I would like to talk about if I ever get the chance to do a talk like this. That list is... really long. 
+
+I don't give talks very often, and I have tried to plan this talk so I basically "stick to the topic" originally given to the hosts of VECS six months ago. I initially had a long list of points, but in general, I can summarize the talk like this:
+
+**TLDR**
+1. Be pragmatic.
+1. Trust people, give them a mandate, and listen to them.
+1. Hours of planning can save you weeks of coding.
+1. Not everything can be planned for. Whatever you do, your software will miss deadlines. 
+1. Take ownership of your problems. Everyone is accountable for your successes, and your failures.
+1. Be pragmatic.
+
+## Why the title?
+
+I've been around long enough to have seen many software engineering trends come and go. I learned about Extreme Programming, Test Driven Development, and Pair Programming in college in the 90s. At that time, standard software engineering meant Waterfall, but I had one teacher who came straight from industry, and was all in on the modern trends. (we ended up hiring him away from the college t the semiconductor startup I worked at after graduation.) 
+
+The agile manifesto was written in 2001, and it changed the engineering world, but Lean, TDD, XP all existed before the Agile Manifesto did.
+
+Trends come and go, resulting in a constantly shifting list of "best practices" that eventually get 💩ed on by the next generation of mid-level engineers with stars in their eyes for the next big thing.
+
+At the individual contributer and engineering manager level, it is often the mid-level engineers that get idealistic and dogmatic about the most recent engineering trends. Oftentimes, they have enough success and years of experience to be granted a nice title (and the ego to go with it). 
+
+How do I know this? I was once one of these *mid-level engineers,* evangelizing for the newest thing in, what I saw as an industry run by aging 9-to-5ers who weren't keeping up with the trends. It doesn't matter what dogma I was pushing; It was the newest thing, so it was better than the older things.
+
+![I'm Not Young Enough To Know Everything](images/youngenough.jpeg)
+
+## How does this apply to Automotive Software
+
+Software has been in vehicles since the 70s. When I worked at National Semiconductor in the early 2000s, we were still selling a 1970s era 4-bit microprocessor to the automotive industry. "It just worked, why change it?"
+
+Until recently, however, automotive software engineering relied mostly on suppliers to do software development, and the car companies focused on requirement specifications defining each end-to-end function in the car, and how these functions were to be split between the ECUs in the car. The design of a car with its various gates (VP, TT, JOB1, MP, PP, SOP, etc) and its supplier-based software development lends itself to waterfall; requirements are released to the suppliers, the suppliers do the software in their "magic software factory" (we'll get to that), and ECUs and software deliveries are shipped back to the OEM.
+
+In this mode, car companies didn't need to think about the processes used by their suppliers to write their software, as long as they followed known-good processes, this was fine. Car companies said "when signal B does X, then signal A should do P" and the suppliers put their "Code Monkeys" to work 🙈.
+
+## What has Changed?
+
+OEMs recently started moving much of their software engineering in-house. Instead of only doing requirements, we decided to do away with much of the requirements-dependant, supplier-based-waterfall model and embrace "Agile. " Unfortunately, just as a mid-level software engineer, OEMs went all in on Agile as if it was a magic bullets. But we are now finally realizing that the promise of Agile is no panacea.
+
+"Senior Management" at many auto companies have been accustomed to operating within a supplier-based software environment, characterized by a focus on meeting deadlines through a system of gates and finger-pointing 👉 (at suppliers) when targets were not achieved.
+
+## Engineering Leadership 
+
+Perhaps Senior Management has never written a line of code; their career path to "Head of Engineering" likely included no coding. Their title gives them the self confidence (and self importance), but they have overseen "Software Requirements," not "Software Engineering." and there is a world of difference between the two. This disconnect leads to poor software engineering experience at automotive companies, a lack of understanding and empathy from leadership on the benefits of force multipliers like platform engineering, dev-ops, and stable CI, etc, because none of these are "direct customer value." Poor software engineering experience leads to difficulty in recruiting and retaining the best people.
+
+## Don't Treat Software Engineers like Suppliers
+
+It is completely fine to point fingers, yell and scream when a supplier misses a deadline or delivers poor quality. You have a business relationship with this company; they signed a contract, and it is their job to ensure not only that features are delivered on time and with high quality, but also to own the internal processes that ensure this will happen. 
+
+### You are the Supplier
+
+OEMs are now the supplier. Not only do OEMs need to create the high-level design and the requirements, but we also need to create an environment where the very best software engineers will come together to create the very best code for our cars. 
+
+```math
+\text{Requirements Engineers} \neq \text{Software Engineers}
+```
+
+This culture of finger-pointing and "lack of trust" when deadlines are missed doesn't translate well now that car companies have their own internal software teams, but car companies risk taking entirely too long to realize this.
+
+What most of these OEMs didn't realize was that 
+
+This will require a cultural shift within senior management, as they adapt to a more hands-on approach to software engineering. Embracing this change will be crucial for car companies to stay competitive in the rapidly evolving landscape of automotive technology. 
+
 
 ## WAGILE: AKA "A Few Weeks of Programming Can Save You Hours of Planning."
 
@@ -130,6 +200,8 @@ But, it's possible to have leaders who haven't done the work, but it requires on
 
 
 <img src="images/a-in-team.png" alt="asshole">
+
+<img src="images/oh-i-did-it-again.jpeg" alt="oops">
 
 
 ## Agree to Disagree / Host Leadership vs Servant Leadership

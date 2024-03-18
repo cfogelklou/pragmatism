@@ -40,7 +40,7 @@ const HEADERS = {
   Authorization: `Bearer ${ApiKey.CHATGPT_API_KEY}`,
 };
 
-const MAX_TOKENS = 1000;
+const MAX_TOKENS = 8000;
 
 let __inst: GptGetter | null = null;
 export class GptGetter {

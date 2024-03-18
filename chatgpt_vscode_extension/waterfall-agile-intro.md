@@ -41,7 +41,7 @@ We add another widget like all the other widgets this is a good reason for trunk
 What do waterfall and agile have in common? It's very easy to forget developer experience. In Agile we have user stories, in waterfall we map features to dates. In neither case do we have a focus on keeping the teams productive and happy.
 
 ### Agile Powerpoint Engineers
-
+b
 When doing waterfall, ever aspect of the design must be defined *in minute detail* before implementation.
 
 Agile spawned the Powerpoint Engineer, someone who took the title of "architect" 15 years ago and doesn't realize that every "certificate" they draw on their slide is an additional 12 man-months of work, plus maintanence to ensure that these certificates can be updated when they expire (which is kind of the point of certificates.)

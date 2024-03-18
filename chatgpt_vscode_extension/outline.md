@@ -59,31 +59,59 @@ In this mode, car companies didn't need to think about the processes used by the
 
 ## What has Changed?
 
-OEMs recently started moving much of their software engineering in-house. Instead of only doing requirements, we decided to do away with much of the requirements-dependant, supplier-based-waterfall model and embrace "Agile. " Unfortunately, just as a mid-level software engineer, OEMs went all in on Agile as if it was a magic bullets. But we are now finally realizing that the promise of Agile is no panacea.
+OEMs recently started moving much of their software engineering in-house. Instead of only doing requirements, we decided to do away with much of the requirements-dependant, supplier-based-waterfall model and embrace "Agile. " Unfortunately, just as a mid-level software engineer, OEMs went all in on Agile as if it was a magic bullet. 
 
-"Senior Management" at many auto companies have been accustomed to operating within a supplier-based software environment, characterized by a focus on meeting deadlines through a system of gates and finger-pointing 👉 (at suppliers) when targets were not achieved.
+![wagile](images/v-model.png)
+
+## All In
+
+At least here in Gothenburg, SAFe became the way to do "Agile.". "Scaled Agile Framework" is a rigid framework for writing agile software. Don't believe me? Try a copy/paste from [random agile website](https://scaledagileframework.com/safe-lean-agile-principles/?_gl=1*5sg8rg*_up*MQ..*_ga*MjExNjMwMzY4Ni4xNzEwNzg4NzMx*_ga_D3EB8LEN46*MTcxMDc4ODcyOS4xLjEuMTcxMDc4ODc1NS4wLjAuMA..*_ga_NJNBW1TGY8*MTcxMDc4ODcyOS4xLjEuMTcxMDc4ODc1NS4wLjAuMA..*_ga_5DDGBZN12N*MTcxMDc4ODcyOS4xLjEuMTcxMDc4ODc1NS4wLjAuMA..)
+
+### SAFe
+
+![agile-leaders](images/agile-leaders-screenshot.png)
+
+But if you try to copy and paste the content of this website:
+
+```sh
+© Scaled Agile, Inc.
+Include this copyright notice with the copied content.
+
+Read the FAQs on how to use SAFe content and trademarks here:
+https://www.scaledagile.com/about/about-us/permissions-faq/
+Explore Training at:
+https://www.scaledagile.com/training/calendar/
+```
+
+I thought that the processes should be 😂 Agile?? 😂
 
 ## Engineering Leadership 
 
-Perhaps Senior Management has never written a line of code; their career path to "Head of Engineering" likely included no coding. Their title gives them the self confidence (and self importance), but they have overseen "Software Requirements," not "Software Engineering." and there is a world of difference between the two. This disconnect leads to poor software engineering experience at automotive companies, a lack of understanding and empathy from leadership on the benefits of force multipliers like platform engineering, dev-ops, and stable CI, etc, because none of these are "direct customer value." Poor software engineering experience leads to difficulty in recruiting and retaining the best people.
+"Senior Management" at many auto companies have been accustomed to operating within a supplier-based software environment, characterized by a focus on meeting deadlines through a system of gates and finger-pointing 👉 (at suppliers) when targets were not achieved.
+
+Who knows if these Senior Leaders have ever written a line of code; the career path to "Head of Engineering" likely didn't include a stint writing embedded linux firmware. Their title gives them the self confidence (and self importance), but the question is: have they overseen "Software Requirements Engineers," or "Software Engineers."? There is a world of difference between the two. This disconnect leads to poor software engineering experience at automotive companies, a lack of understanding and empathy from leadership on the benefits of force multipliers like platform engineering, dev-ops, and stable CI, etc, because none of these are "direct customer value." Poor software engineering experience leads to difficulty in recruiting and retaining the best people.
 
 ## Don't Treat Software Engineers like Suppliers
 
-It is completely fine to point fingers, yell and scream when a supplier misses a deadline or delivers poor quality. You have a business relationship with this company; they signed a contract, and it is their job to ensure not only that features are delivered on time and with high quality, but also to own the internal processes that ensure this will happen. 
+It is completely fine to point fingers 👉 when a supplier misses a deadline or delivers poor quality. You have a business relationship with the supplier; they signed a contract, and it is their job to ensure not only that features are delivered on time and with high quality, but also to own the internal processes that ensure this will happen. Also, the person on the other end of the Teams call is probably paid to receive and handle this sort of "constructive criticism"
 
-### You are the Supplier
+But...  be careful around your own engineers. 
 
-OEMs are now the supplier. Not only do OEMs need to create the high-level design and the requirements, but we also need to create an environment where the very best software engineers will come together to create the very best code for our cars. 
+### OEM is now also the Supplier
+
+This culture of finger-pointing and when deadlines are missed doesn't translate well now that car companies have their own internal software teams. Having internal software teams doesn't mean completely abandoning waterfall methodologies. 
+
+OEMs are now the supplier. Not only do OEMs need to create the high-level design and the requirements, but also need to create an environment where the very best software engineers will come together to create the very best automotive software.
 
 ```math
 \text{Requirements Engineers} \neq \text{Software Engineers}
 ```
 
-This culture of finger-pointing and "lack of trust" when deadlines are missed doesn't translate well now that car companies have their own internal software teams, but car companies risk taking entirely too long to realize this.
+Software Engineers can be strange, finicky people. You may have never heard the words "Well, actually..." when telling a story until you have been surrounded by a bunch of engineers. 
 
-What most of these OEMs didn't realize was that 
+![tabs](images/tabs-vs-spaces-war.png)
 
-This will require a cultural shift within senior management, as they adapt to a more hands-on approach to software engineering. Embracing this change will be crucial for car companies to stay competitive in the rapidly evolving landscape of automotive technology. 
+The tabs vs spaces is real - I've actually had it. And that's the tip of the iceberg.
 
 
 ## WAGILE: AKA "A Few Weeks of Programming Can Save You Hours of Planning."
